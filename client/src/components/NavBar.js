@@ -8,7 +8,7 @@ function NavBar() {
 <Menu pointing secondary size='large'>
     <Menu.Item as={NavLink} to='/' name='home' />
     <Menu.Item as={NavLink} to='/my_items' name='my items' />
-    <Menu.Item as={NavLink} to='/new' name='new review' />
+    <Menu.Item as={NavLink} to='/new' name='new item' />
     <Menu.Menu position='right'>
     <Menu.Item>
         <Input icon='search' placeholder='Search...' />

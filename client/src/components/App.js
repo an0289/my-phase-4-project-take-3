@@ -4,7 +4,7 @@ import NavBar from './NavBar'
 import Login from '../pages/Login'
 import ItemList from '../pages/ItemList'
 import MyItems from '../pages/MyItems'
-import NewReview from '../pages/NewReview'
+import NewItem from '../pages/NewItem'
 import { Header } from 'semantic-ui-react'
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/new"
-            element={<NewReview />}
+            element={<NewItem />}
           />
           <Route path="/"
             element={<ItemList />}
