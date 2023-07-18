@@ -5,6 +5,7 @@ import Login from '../pages/Login'
 import ItemList from '../pages/ItemList'
 import MyItems from '../pages/MyItems'
 import NewItem from '../pages/NewItem'
+import NewRevew from '../pages/NewReview'
 import { Header } from 'semantic-ui-react'
 
 function App() {
