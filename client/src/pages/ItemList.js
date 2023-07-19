@@ -1,19 +1,21 @@
 import React from 'react'
 import { Grid, Image, Item, Icon } from 'semantic-ui-react'
 
+
 function ItemList({ items, setItems }) {
     return (
     <Grid columns={3} divided>
         <Grid.Row>
             {items.map((item => (
                 <Grid.Column>
-                <Item>
+                <Item key={item.id}>
                     <Item.Image size='small' src={item.image_url} />
 
                     <Item.Content>
                         <Item.Header as='a'>{item.name}</Item.Header>
                         <Item.Description>{item.description}</Item.Description>
-                        <Item.Extra>{item.price}</Item.Extra>
+                        <Item.Extra>
+                        <img src='./images/rupee.png' />{item.price}</Item.Extra>
                     </Item.Content>
                 </Item>
             </Grid.Column>
