@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Image, Item, Icon } from 'semantic-ui-react'
+import { Grid, Image, Item, Icon, Card, Divider } from 'semantic-ui-react'
 
 
 function ItemList({ items, setItems }) {
@@ -8,16 +8,21 @@ function ItemList({ items, setItems }) {
         <Grid.Row>
             {items.map((item => (
                 <Grid.Column>
-                <Item key={item.id}>
-                    <Item.Image size='small' src={item.image_url} />
+                <Card key={item.id}>
+                    <img src={item.image_url} height={230} />
 
-                    <Item.Content>
-                        <Item.Header as='a'>{item.name}</Item.Header>
-                        <Item.Description>{item.description}</Item.Description>
-                        <Item.Extra>
-                        <img src='./images/rupee.png' />{item.price}</Item.Extra>
-                    </Item.Content>
-                </Item>
+                    <Card.Content>
+                        <Card.Header >{item.name}</Card.Header>
+                        <Card.Description>{item.description}</Card.Description>
+                    </Card.Content>
+                    <Card.Content extra>
+                        <a>
+                            <Image size='tiny' src='../images/rupee.png'/>
+                            {item.price}
+                        </a>
+                    </Card.Content>
+                </Card>
+                <Divider />
             </Grid.Column>
             )))}
             
