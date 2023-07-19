@@ -34,6 +34,7 @@ function App() {
    <>
    <Header textAlign='right' size='huge'>Zelda Item Shop</Header>
     <NavBar />
+    <img src='./images/spoils_bag.png' />
       <main>
         <Routes>
           <Route path="/new"
