@@ -1,10 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ItemCard from './ItemCard'
 import { Container, Grid, Image, Item, Icon, Card, Divider, Segment, Button } from 'semantic-ui-react'
 
 
-function ItemList({ items, setItems }) {
-    
+function ItemList() {
+    const [items, setItems] = useState([])
+
+    useEffect(() => {
+        fetch("/items").then((r) => {
+          if (r.ok) {
+            r.json().then((items) => setItems(items))
+          }
+        })
+      }, [])
+
     return (
     <Grid columns={3} divided>
         <Grid.Row >

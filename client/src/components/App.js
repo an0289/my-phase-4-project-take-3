@@ -9,16 +9,9 @@ import NewRevew from '../pages/NewReview'
 import { Header } from 'semantic-ui-react'
 
 function App() {
-  const [items, setItems] = useState([])
+  
   const [user, setUser] = useState(null)
 
-  useEffect(() => {
-    fetch("/items").then((r) => {
-      if (r.ok) {
-        r.json().then((items) => setItems(items))
-      }
-    })
-  }, [])
 
   // useEffect(() => {
   //   fetch("/me").then((r) => {
@@ -41,7 +34,7 @@ function App() {
             element={<NewItem />}
           />
           <Route path="/"
-            element={<ItemList items={items} setItems={setItems}/>}
+            element={<ItemList />}
           />
           <Route path='/my_reviewed_items'
             element={<MyReviewedItems />}
