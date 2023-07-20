@@ -7,7 +7,7 @@ function NavBar() {
 <div>
 <Menu pointing secondary size='huge'>
     <Menu.Item as={NavLink} to='/' name='home' />
-    <Menu.Item as={NavLink} to='/my_items' name='my items' />
+    <Menu.Item as={NavLink} to='/my_reviews' name='my reviewed items' />
     <Menu.Item as={NavLink} to='/new' name='new item' />
     <Menu.Menu position='right'>
     <Menu.Item>

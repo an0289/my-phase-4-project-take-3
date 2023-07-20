@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import NavBar from './NavBar'
 import Login from '../pages/Login'
 import ItemList from '../pages/ItemList'
-import MyItems from '../pages/MyItems'
+import MyReviewedItems from '../pages/MyReviewedItems'
 import NewItem from '../pages/NewItem'
 import NewRevew from '../pages/NewReview'
 import { Header } from 'semantic-ui-react'
@@ -43,8 +43,8 @@ function App() {
           <Route path="/"
             element={<ItemList items={items} setItems={setItems}/>}
           />
-          <Route path='/my_items'
-            element={<MyItems />}
+          <Route path='/my_reviewed_items'
+            element={<MyReviewedItems />}
           />
         </Routes>
       </main>

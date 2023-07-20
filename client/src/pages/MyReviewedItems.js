@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Image, Item, Icon } from 'semantic-ui-react'
 
-function MyItems() {
+function MyReviewedItems() {
     return (
         <Grid columns={3} divided>
             <Grid.Row>
@@ -91,4 +91,4 @@ function MyItems() {
         )
 }
 
-export default MyItems
+export default MyReviewedItems

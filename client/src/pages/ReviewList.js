@@ -7,7 +7,7 @@ function ReviewList({ reviews, showReviews, setShowReviews }) {
         <Segment raised>
             <List divided relaxed>
                 {reviews.map((review) => (
-                <Review key={review.id} review={review}/>
+                <Review key={review.id} review={review} user={review.user}/>
                 ))}
             </List>
             <Button color= 'red' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>Hide Reviews</Button>
