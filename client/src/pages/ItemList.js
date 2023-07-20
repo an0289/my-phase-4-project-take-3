@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ReviewList from './ReviewList'
 import { Container, Grid, Image, Item, Icon, Card, Divider, Segment, Button } from 'semantic-ui-react'
 
 
 function ItemList({ items, setItems }) {
+    const [showReviews, setShowReviews] = useState(false)
     return (
     <Grid columns={3} divided>
         <Grid.Row >
@@ -22,9 +24,14 @@ function ItemList({ items, setItems }) {
                         </Card.Content>
                         <Card.Content extra>
                             <Card.Header>
-                            <img height={25} src='../images/rupee.png'/>
+                            <img height={30} src='../images/rupee.png'/>
                             {item.price}
-                            <Button color= 'teal' floated='right'>See Reviews</Button>
+                            {showReviews ? (
+                            <ReviewList showReviews={showReviews} setShowReviews={setShowReviews} reviews={item.reviews}/>
+                            ) : (
+                            <Button color= 'teal' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>See Reviews</Button>
+                             )}
+                            
                             </Card.Header>
                         </Card.Content>
                     </Card>
@@ -32,78 +39,10 @@ function ItemList({ items, setItems }) {
                 <Divider />
             </Grid.Column>
             )))}
-            
-            {/* <Grid.Column>
-                <Item>
-                    <Item.Image size='small' src='/images/wireframe/image.png' />
-
-                    <Item.Content>
-                        <Item.Header as='a'>Cute Dog</Item.Header>
-                        <Item.Description>paragraph</Item.Description>
-                        <Item.Extra>
-                        <Icon color='green' name='check' /> 121 Votes
-                        </Item.Extra>
-                    </Item.Content>
-                </Item>
-            </Grid.Column>
-            <Grid.Column>
-                <Item>
-                    <Item.Image size='small' src='/images/wireframe/image.png' />
-
-                    <Item.Content>
-                        <Item.Header as='a'>Cute Dog</Item.Header>
-                        <Item.Description>paragraph</Item.Description>
-                        <Item.Extra>
-                        <Icon color='green' name='check' /> 121 Votes
-                        </Item.Extra>
-                    </Item.Content>
-                </Item>
-            </Grid.Column>
-        </Grid.Row>
-
-        <Grid.Row>
-            <Grid.Column>
-                <Item>
-                    <Item.Image size='small' src='/images/wireframe/image.png' />
-
-                    <Item.Content>
-                        <Item.Header as='a'>Cute Dog</Item.Header>
-                        <Item.Description>paragraph</Item.Description>
-                        <Item.Extra>
-                        <Icon color='green' name='check' /> 121 Votes
-                        </Item.Extra>
-                    </Item.Content>
-                </Item>
-            </Grid.Column>
-            <Grid.Column>
-                <Item>
-                    <Item.Image size='small' src='/images/wireframe/image.png' />
-
-                    <Item.Content>
-                        <Item.Header as='a'>Cute Dog</Item.Header>
-                        <Item.Description>paragraph</Item.Description>
-                        <Item.Extra>
-                        <Icon color='green' name='check' /> 121 Votes
-                        </Item.Extra>
-                    </Item.Content>
-                </Item>
-            </Grid.Column>
-            <Grid.Column>
-                <Item>
-                    <Item.Image size='small' src='/images/wireframe/image.png' />
-
-                    <Item.Content>
-                        <Item.Header as='a'>Cute Dog</Item.Header>
-                        <Item.Description>paragraph</Item.Description>
-                        <Item.Extra>
-                        <Icon color='green' name='check' /> 121 Votes
-                        </Item.Extra>
-                    </Item.Content>
-                </Item>
-            </Grid.Column> */}
         </Grid.Row>
   </Grid>
     )
 }
 
 export default ItemList 
+
