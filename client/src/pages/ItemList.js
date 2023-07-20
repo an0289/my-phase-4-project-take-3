@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Grid, Image, Item, Icon, Card, Divider, Segment } from 'semantic-ui-react'
+import { Container, Grid, Image, Item, Icon, Card, Divider, Segment, Button } from 'semantic-ui-react'
 
 
 function ItemList({ items, setItems }) {
@@ -10,15 +10,21 @@ function ItemList({ items, setItems }) {
                 <Grid.Column stretched key={item.id}>
                 <Segment >
                 <Image centered src={item.image_url} height={350}/>
-                    <Card fluid >
+                    <Card raised fluid color='green' >
                         <Card.Content>
-                            <Card.Header >{item.name}</Card.Header>
+                            <Card.Header>
+                                {item.name}
+                                <Button circular color='red' icon floated='right'>
+                                    <Icon  name='like' />
+                                </Button>
+                            </Card.Header>
                             <Card.Description>{item.description}</Card.Description>
                         </Card.Content>
                         <Card.Content extra>
                             <Card.Header>
                             <img height={25} src='../images/rupee.png'/>
                             {item.price}
+                            <Button color= 'teal' floated='right'>See Reviews</Button>
                             </Card.Header>
                         </Card.Content>
                     </Card>
