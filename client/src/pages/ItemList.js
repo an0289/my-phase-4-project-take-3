@@ -1,27 +1,28 @@
 import React from 'react'
-import { Grid, Image, Item, Icon, Card, Divider } from 'semantic-ui-react'
+import { Container, Grid, Image, Item, Icon, Card, Divider, Segment } from 'semantic-ui-react'
 
 
 function ItemList({ items, setItems }) {
     return (
     <Grid columns={3} divided>
-        <Grid.Row>
+        <Grid.Row >
             {items.map((item => (
-                <Grid.Column>
-                <Card key={item.id}>
-                    <img src={item.image_url} height={230} />
-
-                    <Card.Content>
-                        <Card.Header >{item.name}</Card.Header>
-                        <Card.Description>{item.description}</Card.Description>
-                    </Card.Content>
-                    <Card.Content extra>
-                        <a>
-                            <Image size='tiny' src='../images/rupee.png'/>
+                <Grid.Column stretched key={item.id}>
+                <Segment >
+                <Image centered src={item.image_url} height={350}/>
+                    <Card fluid >
+                        <Card.Content>
+                            <Card.Header >{item.name}</Card.Header>
+                            <Card.Description>{item.description}</Card.Description>
+                        </Card.Content>
+                        <Card.Content extra>
+                            <Card.Header>
+                            <img height={25} src='../images/rupee.png'/>
                             {item.price}
-                        </a>
-                    </Card.Content>
-                </Card>
+                            </Card.Header>
+                        </Card.Content>
+                    </Card>
+                </Segment>
                 <Divider />
             </Grid.Column>
             )))}
