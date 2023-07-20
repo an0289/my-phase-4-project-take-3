@@ -1,4 +1,5 @@
 import react from "react";
+import Review from './Review'
 import { Button, Segment, List, Image } from 'semantic-ui-react'
 
 function ReviewList({ reviews, showReviews, setShowReviews }) {
@@ -6,14 +7,7 @@ function ReviewList({ reviews, showReviews, setShowReviews }) {
         <Segment raised>
             <List divided relaxed>
                 {reviews.map((review) => (
-                <List.Item>
-                <Image avatar/>
-                <List.Content>
-                    <List.Header as='a'>Username</List.Header>
-                    <List.Description>{review.title}</List.Description>
-                    <List.Description>{review.body}</List.Description>
-                </List.Content>
-            </List.Item>
+                <Review key={review.id} review={review}/>
                 ))}
             </List>
             <Button color= 'red' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>Hide Reviews</Button>
