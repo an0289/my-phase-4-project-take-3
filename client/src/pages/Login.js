@@ -14,7 +14,7 @@ function Login({ onLogin }) {
         <Divider hidden />
         <Divider hidden />
         <Container>
-        <Segment>
+        <Segment raised>
             <Header style={{ fontFamily: 'Papyrus' }} size='huge' textAlign='center'>
                 Zelda Item Shop
                 <Image src='../images/rupee.png' size='massive' centered/> 
@@ -24,9 +24,8 @@ function Login({ onLogin }) {
                 <LoginForm onLogin={onLogin} />
                 <Divider hidden />
                 <Container text>
-               
-                <Header as='h2' style={{ fontFamily: 'Papyrus' }} textAlign='center'>
-                 <Image src='../images/Tingle.png' size='massive' centered/> 
+                <Image size='small' src='../images/Tingle.png' centered />
+                <Header as='h3' style={{ fontFamily: 'Papyrus' }} textAlign='center'> 
                 Don't have an account?
                 </Header>
                 <Button color='orange' attached='bottom' onClick={() => setShowLogin(false)}>Sign Up</Button>
