@@ -6,28 +6,28 @@ import ItemList from '../pages/ItemList'
 import MyReviewedItems from '../pages/MyReviewedItems'
 import NewItem from '../pages/NewItem'
 import NewRevew from '../pages/NewReview'
-import { Header } from 'semantic-ui-react'
+import { Header, Divider } from 'semantic-ui-react'
 
 function App() {
-  
   const [user, setUser] = useState(null)
 
 
-  // useEffect(() => {
-  //   fetch("/me").then((r) => {
-  //     if (r.ok) {
-  //       r.json().then((user) => setUser(user))
-  //     }
-  //   })
-  // }, [])
+  useEffect(() => {
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user))
+      }
+    })
+  }, [])
 
-  // if (!user) return <Login />
+  if (!user) return <Login onLogin={setUser} />
 
   return (
    <>
+   <Divider hidden />
    <Header textAlign='right' size='huge'>Zelda Item Shop</Header>
-    <NavBar />
-    {/* <img src='./images/spoils_bag.png' /> */}
+   <Divider hidden />
+    <NavBar user={user} setUser={setUser}/>
       <main>
         <Routes>
           <Route path="/new"

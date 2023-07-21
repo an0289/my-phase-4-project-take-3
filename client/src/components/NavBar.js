@@ -2,7 +2,15 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Menu, Header, Input, Divider } from 'semantic-ui-react'
 
-function NavBar() {
+function NavBar({ user, setUser }) {
+    function handleLogoutClick() {
+        fetch("/logout", { method: "DELETE"}).then((r) => {
+            if (r.ok) {
+                setUser(null)
+            }
+        })
+    }
+
     return (
 <div>
 <Menu pointing secondary size='huge'>
@@ -13,7 +21,7 @@ function NavBar() {
     <Menu.Item>
         <Input icon='search' placeholder='Search...' />
     </Menu.Item>
-    <Menu.Item as={NavLink} to='/logout' name='logout' />
+    <Menu.Item onClick={handleLogoutClick} name='logout' />
     </Menu.Menu>
 </Menu>
 <Divider hidden />
