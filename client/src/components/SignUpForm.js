@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Button, Form, Segment, Divider, Label } from 'semantic-ui-react'
+import { Container, Button, Form, Segment, Divider, Label, Header } from 'semantic-ui-react'
 
 function SignUpForm({ onLogin }) {
     const [username, setUsername] = useState("")
@@ -32,10 +32,11 @@ function SignUpForm({ onLogin }) {
     }
 
     return (
-        <Container>
-        <Segment raised inverted>
+        <>
+        <Container style={{ paddingLeft:80}}>
+        <Segment style={{ height:395, width:500}} raised>
             <Form onSubmit={handleSubmit}>
-                <Form.Group widths='equal'>
+            <Header style={{ fontFamily: 'Papyrus' }} textAlign='center' as='h3'>Sign Up Page</Header>
                     <Form.Field>
                         <label>Username</label>
                         <input 
@@ -47,6 +48,7 @@ function SignUpForm({ onLogin }) {
                         />
                     </Form.Field>
                     <Form.Field>
+                    <label>Password</label>
                         <input 
                         type='password'
                         name='password'
@@ -56,6 +58,7 @@ function SignUpForm({ onLogin }) {
                         />
                     </Form.Field>
                     <Form.Field>
+                    <label>Password Confirmation</label>
                         <input 
                         type='password'
                         name='password_confirmation'
@@ -65,6 +68,7 @@ function SignUpForm({ onLogin }) {
                         />
                     </Form.Field>
                     <Form.Field>
+                    <label>Avatar</label>
                         <input 
                         type='text'
                         name='imageUrl'
@@ -78,11 +82,11 @@ function SignUpForm({ onLogin }) {
                             <Label key={err}>{err}</Label>
                         ))}
                     </Form.Field>
-                </Form.Group>
-                <Button type='submit'>Login</Button>
+                <Button inverted color='blue' type='submit'>Sign Up</Button>
             </Form>
         </Segment>
         </Container>
+        </>
         )
 }
 
