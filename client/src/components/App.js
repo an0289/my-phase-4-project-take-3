@@ -6,7 +6,7 @@ import ItemList from '../pages/ItemList'
 import MyReviewedItems from '../pages/MyReviewedItems'
 import NewItem from '../pages/NewItem'
 import NewRevew from '../pages/NewReview'
-import { Header, Divider } from 'semantic-ui-react'
+import { Header, Divider, Image } from 'semantic-ui-react'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -25,7 +25,10 @@ function App() {
   return (
    <>
    <Divider hidden />
-   <Header style={{ fontFamily: 'Papyrus' }} textAlign='right' size='huge'>Zelda Item Shop</Header>
+   <Header style={{ fontFamily: 'Papyrus' }} textAlign='right' size='huge'>
+    Zelda Item Shop
+    <Image src='../images/rupee.png' size='massive' centered/> 
+    </Header>
    <Divider hidden />
     <NavBar user={user} setUser={setUser}/>
       <main>
