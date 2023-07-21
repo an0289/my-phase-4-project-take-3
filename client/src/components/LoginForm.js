@@ -24,10 +24,11 @@ function LoginForm({ onLogin }) {
     }
 
     return (
+        <>
+        <Divider hidden />
         <Container>
-        <Segment raised inverted>
+        <Segment raised>
             <Form onSubmit={handleSubmit}>
-                <Form.Group widths='equal'>
                     <Form.Field>
                         <label>Username</label>
                         <input 
@@ -39,6 +40,7 @@ function LoginForm({ onLogin }) {
                         />
                     </Form.Field>
                     <Form.Field>
+                        <label>Password</label>
                         <input 
                         type='password'
                         name='password'
@@ -52,11 +54,11 @@ function LoginForm({ onLogin }) {
                             <Label key={err}>{err}</Label>
                         ))}
                     </Form.Field>
-                </Form.Group>
                 <Button type='submit'>Login</Button>
             </Form>
         </Segment>
         </Container>
+        </>
         )
 }
 

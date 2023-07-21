@@ -25,7 +25,7 @@ function App() {
   return (
    <>
    <Divider hidden />
-   <Header textAlign='right' size='huge'>Zelda Item Shop</Header>
+   <Header style={{ fontFamily: 'Papyrus' }} textAlign='right' size='huge'>Zelda Item Shop</Header>
    <Divider hidden />
     <NavBar user={user} setUser={setUser}/>
       <main>
