@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Button, Form, Segment, Divider, Label } from 'semantic-ui-react'
+import { Container, Button, Form, Segment, Divider, Label, Header } from 'semantic-ui-react'
 
 function LoginForm({ onLogin }) {
     const [username, setUsername] = useState("")
@@ -26,9 +26,10 @@ function LoginForm({ onLogin }) {
     return (
         <>
         <Divider hidden />
-        <Container>
-        <Segment raised>
+        <Container style={{ paddingLeft:80}}>
+        <Segment style={{ height:240, width:500}} raised>
             <Form onSubmit={handleSubmit}>
+                <Header style={{ fontFamily: 'Papyrus' }} textAlign='center' as='h3'>Login Page</Header>
                     <Form.Field>
                         <label>Username</label>
                         <input 
@@ -54,7 +55,7 @@ function LoginForm({ onLogin }) {
                             <Label key={err}>{err}</Label>
                         ))}
                     </Form.Field>
-                <Button type='submit'>Login</Button>
+                <Button inverted color='blue' type='submit'>Login</Button>
             </Form>
         </Segment>
         </Container>

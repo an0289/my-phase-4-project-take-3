@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import LoginForm from '../components/LoginForm'
 import SignUpForm from '../components/SignUpForm'
-import { Form, Button, Header, Divider, Segment, Container, Image } from 'semantic-ui-react'
+import { Form, Button, Header, Divider, Segment, Container, Image, Grid } from 'semantic-ui-react'
 import Background from '../assets/whale_wind_waker_bg.jpg'
 
 
@@ -9,12 +9,10 @@ function Login({ onLogin }) {
     const [showLogin, setShowLogin] = useState(true)
 
     return (
-        <div style={{ backgroundImage: `url(${Background})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '100vh' }} >
+        <div style={{ backgroundImage: `url(${Background})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '99vh' }} >
         <Divider hidden />
-        <Divider hidden />
-        <Divider hidden />
-        <Container>
-        <Segment raised>
+        <Container style={{ paddingLeft:260 }}>
+        <Segment rounded style={{ height:520, width:700 }}raised>
             <Header style={{ fontFamily: 'Papyrus' }} size='huge' textAlign='center'>
                 Zelda Item Shop
                 <Image src='../images/rupee.png' size='massive' centered/> 
@@ -23,20 +21,21 @@ function Login({ onLogin }) {
             <>
                 <LoginForm onLogin={onLogin} />
                 <Divider hidden />
-                <Container text>
-                <Image size='small' src='../images/Tingle.png' centered />
+                <Container fluid text>
                 <Header as='h3' style={{ fontFamily: 'Papyrus' }} textAlign='center'> 
+                <Image size='massive' src='../images/Tingle.png' centered />
                 Don't have an account?
                 </Header>
-                <Button color='orange' attached='bottom' onClick={() => setShowLogin(false)}>Sign Up</Button>
+                <Button inverted color='green' attached='bottom' onClick={() => setShowLogin(false)}>Sign Up</Button>
                 </Container>
+           
             </>
             ) : (
             <>
                 <SignUpForm onLogin={onLogin} />
                 <Divider hidden />
                 <Header textAlign='center'>Already have an account?</Header>
-                <Button color='teal' onClick={() => setShowLogin(true)}>Sign In</Button>
+                <Button inverted color='teal' onClick={() => setShowLogin(true)}>Sign In</Button>
             </>
             )}
         </Segment>
