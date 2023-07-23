@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
-import { Button, Segment, List, Image } from 'semantic-ui-react'
+import { Button, Segment, List, Image, Item, Divider } from 'semantic-ui-react'
 
 function Review({ review }) {
 
     return (
-        <List.Item>
-                <Image avatar/>
-                <List.Content>
-                    <List.Header as='a'>{review.username}</List.Header>
-                    <List.Description>{review.title}</List.Description>
-                    <List.Description>{review.body}</List.Description>
-                </List.Content>
-        </List.Item>
+        <Item>
+                <Item.Image size='tiny' src={review.image_url}/>
+                <Item.Content>
+                    <Item.Header>{review.username}</Item.Header>
+                    <Item.Meta>
+                        <span>{review.title}</span>
+                    </Item.Meta>
+                    <Item.Description>{review.body}</Item.Description>
+                </Item.Content>
+                <Divider />
+        </Item>
     )
 }
 
