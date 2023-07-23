@@ -31,6 +31,10 @@ function App() {
     Zelda Item Shop
     <Image src='../images/rupee.png' size='massive' centered/> 
     </Header>
+    <Header as='h3' style={{ fontFamily: 'Papyrus', paddingRight:30 }} textAlign='right'>
+    <Image circular src={user.image_url} bordered />
+    {user.username}
+    </Header>
    <Divider hidden />
     <NavBar user={user} setUser={setUser}/>
     </Container>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Form, Segment, Divider } from 'semantic-ui-react'
 
-function NewItem() {
+function NewItem({}) {
     return (
     <>
     <Divider hidden />

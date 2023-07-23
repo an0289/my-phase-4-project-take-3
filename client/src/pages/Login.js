@@ -47,7 +47,8 @@ function Login({ onLogin }) {
                 <Container fluid text>
                 <Header as='h3' style={{ fontFamily: 'Papyrus' }} textAlign='center'>
                 <Image size='massive' src='../images/Tingle.png' centered />
-                    Already have an account?</Header>
+                    Already have an account?
+                </Header>
                 <Button inverted color='green' attached='bottom' onClick={() => setShowLogin(true)}>Sign In</Button>
                 </Container>
             </Segment>
