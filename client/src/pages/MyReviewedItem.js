@@ -1,15 +1,15 @@
 import React from 'react'
 import { Grid, Image, Item, Icon, Card, Segment } from 'semantic-ui-react'
 
-function MyReviewedItem({ item, review }) {
+function MyReviewedItem({ review }) {
     return (
         <Grid.Column stretched>
                 <Segment >
-                <Image centered src={item.image_url} height={350}/>
+                <Image centered src={review.item_image} height={350}/>
                     <Card raised fluid color='green' >
                         <Card.Content>
                             <Card.Header>
-                                {item.name}
+                                {review.name}
                             </Card.Header>
                             <Card.Description>{review.title}</Card.Description>
                         </Card.Content>

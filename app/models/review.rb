@@ -12,4 +12,12 @@ class Review < ApplicationRecord
   def image_url
     self.user.image_url
   end 
+
+  def item_image
+    self.item.image_url
+  end 
+
+  def name
+    self.item.name
+  end 
 end

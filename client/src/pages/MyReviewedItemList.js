@@ -7,7 +7,7 @@ function MyReviewedItemList({ user }) {
         <Grid columns={3} divided>
         <Grid.Row >
             {user.reviews.map((review => (
-            <MyReviewedItem key={review.id} item={review.item} review={review}/> 
+            <MyReviewedItem key={review.id} review={review}/> 
             )))}
         </Grid.Row>
   </Grid>
