@@ -1,23 +1,22 @@
 import React from 'react'
-import { Grid, Image, Item, Icon, Card, Segment } from 'semantic-ui-react'
+import { Grid, Image, Item, Icon, Card, Segment, Divider, Header } from 'semantic-ui-react'
 
 function MyReviewedItem({ review }) {
     return (
         <Grid.Column stretched>
-                <Segment >
-                <Image centered src={review.item_image} height={350}/>
-                    <Card raised fluid color='green' >
-                        <Card.Content>
-                            <Card.Header>
-                                {review.name}
-                            </Card.Header>
-                            <Card.Description>{review.title}</Card.Description>
-                        </Card.Content>
-                        <Card.Content extra>
-                            <Card.Header>{review.body}</Card.Header>
-                        </Card.Content>
-                    </Card>
+                <Segment color='violet'>
+                <Item.Group>
+                    <Item>
+                    <Header as='h4'>{review.name}</Header>
+                        <Item.Image size='tiny' src={review.item_image} />
+                        <Item.Content>
+                            <Item.Header>{review.title}</Item.Header>
+                            <Item.Description>{review.body}</Item.Description>
+                        </Item.Content>
+                    </Item>
+                </Item.Group>
                 </Segment>
+                <Divider hidden/>
             </Grid.Column>
     )
 }
