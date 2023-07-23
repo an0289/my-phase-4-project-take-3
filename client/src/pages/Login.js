@@ -19,7 +19,7 @@ function Login({ onLogin }) {
                 </Header> */}
             {showLogin ? (
             <>
-            <Segment  style={{ height:520, width:700 }}raised>
+            <Segment  color='violet' style={{ height:520, width:700 }}raised>
             <Header style={{ fontFamily: 'Papyrus' }} size='huge' textAlign='center'>
                 Zelda Item Shop
                 <Image src='../images/rupee.png' size='massive' centered/> 
@@ -37,7 +37,7 @@ function Login({ onLogin }) {
             </>
             ) : (
             <>
-            <Segment  style={{ height:650, width:700 }}raised>
+            <Segment  color='violet' style={{ height:650, width:700 }}raised>
             <Header style={{ fontFamily: 'Papyrus' }} size='huge' textAlign='center'>
                 Zelda Item Shop
                 <Image src='../images/rupee.png' size='massive' centered/> 

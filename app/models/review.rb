@@ -4,4 +4,12 @@ class Review < ApplicationRecord
 
   validates :title, presence: true 
   validates :body, presence: true 
+
+  def username
+    self.user.username
+  end 
+
+  def image_url
+    self.user.image_url
+  end 
 end

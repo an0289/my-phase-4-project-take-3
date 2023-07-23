@@ -3,7 +3,7 @@ import ReviewList from './ReviewList'
 import { Container, Grid, Image, Item, Icon, Card, Divider, Segment, Button } from 'semantic-ui-react'
 
 
-function ItemCard({item}) {
+function ItemCard({ item }) {
     const [showReviews, setShowReviews] = useState(false)
 
     return (
@@ -25,7 +25,7 @@ function ItemCard({item}) {
                             <img height={30} src='../images/rupee.png'/>
                             {item.price}
                             {showReviews ? (
-                            <ReviewList showReviews={showReviews} setShowReviews={setShowReviews} reviews={item.reviews}/>
+                            <ReviewList showReviews={showReviews} setShowReviews={setShowReviews} reviews={item.reviews} />
                             ) : (
                             <Button color= 'teal' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>See Reviews</Button>
                              )}

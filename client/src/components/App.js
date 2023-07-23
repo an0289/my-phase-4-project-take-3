@@ -3,10 +3,11 @@ import { Routes, Route } from 'react-router-dom'
 import NavBar from './NavBar'
 import Login from '../pages/Login'
 import ItemList from '../pages/ItemList'
-import MyReviewedItems from '../pages/MyReviewedItems'
+import MyReviewedItemList from '../pages/MyReviewedItemList'
 import NewItem from '../pages/NewItem'
 import NewRevew from '../pages/NewReview'
-import { Header, Divider, Image } from 'semantic-ui-react'
+import { Header, Divider, Image, Container } from 'semantic-ui-react'
+import Background from '../assets/whale_wind_waker_bg.jpg'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -24,6 +25,7 @@ function App() {
 
   return (
    <>
+   <Container fluid>
    <Divider hidden />
    <Header style={{ fontFamily: 'Papyrus' }} textAlign='right' size='huge'>
     Zelda Item Shop
@@ -31,6 +33,7 @@ function App() {
     </Header>
    <Divider hidden />
     <NavBar user={user} setUser={setUser}/>
+    </Container>
       <main>
         <Routes>
           <Route path="/new"
@@ -40,7 +43,7 @@ function App() {
             element={<ItemList />}
           />
           <Route path='/my_reviewed_items'
-            element={<MyReviewedItems />}
+            element={<MyReviewedItemList user={user}/>}
           />
         </Routes>
       </main>

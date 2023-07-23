@@ -3,7 +3,7 @@ import ItemCard from './ItemCard'
 import { Container, Grid, Image, Item, Icon, Card, Divider, Segment, Button } from 'semantic-ui-react'
 
 
-function ItemList() {
+function ItemList({ }) {
     const [items, setItems] = useState([])
 
     useEffect(() => {
@@ -18,7 +18,7 @@ function ItemList() {
     <Grid columns={3} divided>
         <Grid.Row >
             {items.map((item => (
-            <ItemCard key={item.id} item={item}/>
+            <ItemCard key={item.id} item={item}/> 
             )))}
         </Grid.Row>
   </Grid>

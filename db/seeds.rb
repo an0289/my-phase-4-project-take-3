@@ -23,7 +23,7 @@ Item.create!(name: 'Stick', image_url: '../images/enemy_stick_weapon.png' , desc
 Item.create!(name: 'Bomb', image_url: '../images/bomb.png' , description: 'Blows stuff up', price: "20")
 Item.create!(name: 'Boomerang', image_url: '../images/boomerang.png' , description: 'Throw it and watch it come back', price: "50")
 Item.create!(name: 'Grappling Hook', image_url: '../images/grappling_hook.png' , description: 'Throw at enemies and ledges', price: "75")
-Item.create!(name: 'Bow', image_url: '../images/bow_and_arrow.png' , description: 'A bow. Needs Arrows not included', price: "100")
+Item.create!(name: 'Bow', image_url: '../images/bow_and_arrow.png' , description: 'A bow. Arrows not included', price: "100")
 Item.create!(name: 'Bundle of Arrows', image_url: '../images/quiver_with_arrows.png' , description: 'Bundle of 10 arrows', price: "25")
 Item.create!(name: 'Hammer', image_url: '../images/hammer.png' , description: 'Great at hitting giant birds', price: "200")
 Item.create!(name: 'Iron Boots', image_url: '../images/iron_boots.png' , description: 'Makes you an immovable force', price: "250")
