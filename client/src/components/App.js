@@ -5,7 +5,6 @@ import Login from '../pages/Login'
 import ItemList from '../pages/ItemList'
 import MyReviewedItemList from '../pages/MyReviewedItemList'
 import NewItem from '../pages/NewItem'
-import NewRevew from '../pages/NewReview'
 import { Header, Divider, Image, Container, Button } from 'semantic-ui-react'
 import Background from '../assets/whale_wind_waker_bg.jpg'
 
@@ -34,23 +33,33 @@ function App() {
 
 
   function handleUpdateReview(updatedReview) {
-    const updatedUserReviews = user
-    if(user.id === updatedReview.user_id) {
-      const updatedUserReviews = user.reviews.map((review) => review.id === updatedReview.id ? updatedReview : user)
-      user.reviews = updatedUserReviews
-    }
-      return user
-      setUser(updatedUserReviews)
+      const updatedUserReviews = user.reviews.map((review) => review.id === updatedReview.id ? updatedReview : review)
+      const updatedUser = { ...user, reviews: updatedUserReviews}
+      setUser(updatedUser)
+
+      const updatedItems = items.map((item) => {
+        if(item.id === updatedReview.item_id) {
+          const updatedItemReviews = item.reviews.map((review) => review.id === updatedReview.id ? updatedReview : item)
+          item.reviews = updatedItemReviews 
+        }
+          return item 
+      })
+      setItems(updatedItems)
   }
 
   function handleDeleteReview(review) {
-    const updatedUserReviews = user 
-    if(user.id === review.user_id) {
       const updatedUserReviews = user.reviews.filter((review) => review.id !== review.id)
-      user.reviews = updatedUserReviews 
-    }
-      return user 
-      setUser(updatedUserReviews)
+      const updatedUser = {...user, reviews: updatedUserReviews} 
+      setUser(updatedUser)
+
+      const updatedItems = items.map((item) => {
+        if(item.id === review.item_id) {
+          const updatedItemReviews = item.reviews.filter((review) => review.id !== review.id)
+          item.reviews = updatedItemReviews
+        }
+          return item
+      })
+      setItems(updatedItems)
   }
 
   function handleAddItem(newItem) {
