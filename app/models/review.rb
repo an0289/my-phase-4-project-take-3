@@ -4,7 +4,8 @@ class Review < ApplicationRecord
 
   validates :title, presence: true 
   validates :body, presence: true 
-  # validates :item_id, uniqueness: true 
+  validates :user_id, uniqueness: { scope: :item_id,
+            message: "Users may only write one review per product" } 
 
   def username
     self.user.username
