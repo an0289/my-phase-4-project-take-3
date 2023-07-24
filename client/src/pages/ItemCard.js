@@ -3,8 +3,9 @@ import ReviewList from './ReviewList'
 import { Container, Grid, Image, Item, Icon, Card, Divider, Segment, Button } from 'semantic-ui-react'
 
 
-function ItemCard({ item }) {
+function ItemCard({ item, onAddReview }) {
     const [showReviews, setShowReviews] = useState(false)
+    const [isLike, setIsLike] = useState(false)
 
     return (
         <Grid.Column stretched>
@@ -14,9 +15,16 @@ function ItemCard({ item }) {
                         <Card.Content>
                             <Card.Header>
                                 {item.name}
-                                <Button circular color='red' icon floated='right'>
+                                {isLike ? (
+                                <Button onClick={() => setIsLike((isLike) => !isLike)} circular  color='red' icon floated='right'>
                                     <Icon  name='like' />
                                 </Button>
+                                ) : (
+                                <Button onClick={() => setIsLike((isLike) => !isLike)} circular color='black' icon floated='right'>
+                                    <Icon  name='like' />
+                                </Button>
+                                )}
+                                
                             </Card.Header>
                             <Card.Description>{item.description}</Card.Description>
                         </Card.Content>
@@ -25,7 +33,7 @@ function ItemCard({ item }) {
                             <img height={30} src='../images/rupee.png'/>
                             {item.price}
                             {showReviews ? (
-                            <ReviewList showReviews={showReviews} setShowReviews={setShowReviews} reviews={item.reviews} />
+                            <ReviewList onAddReview={onAddReview} showReviews={showReviews} setShowReviews={setShowReviews} reviews={item.reviews} />
                             ) : (
                             <Button color= 'teal' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>See Reviews</Button>
                              )}

@@ -3,12 +3,12 @@ import Review from './Review'
 import NewReview from './NewReview'
 import { Button, Segment, List, Image, Item, Divider } from 'semantic-ui-react'
 
-function ReviewList({ reviews, showReviews, setShowReviews }) {
+function ReviewList({ reviews, showReviews, setShowReviews, onAddReview }) {
     const [isAdd, setIsAdd] = useState(false)
 
     return (
         <>
-        {isAdd ? ( <NewReview setIsAdd={setIsAdd}/>
+        {isAdd ? ( <NewReview onAddReview={onAddReview} setIsAdd={setIsAdd}/>
         ) : (
         <Segment raised>
         <List divided relaxed >
