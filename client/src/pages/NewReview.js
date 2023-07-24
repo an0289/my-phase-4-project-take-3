@@ -10,7 +10,6 @@ function NewReview({ setIsAdd, onAddReview }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        setIsAdd(false)
         fetch("/reviews", {
             method: "POST",
             headers: {
@@ -23,7 +22,7 @@ function NewReview({ setIsAdd, onAddReview }) {
         }).then((r) => {
             if (r.ok) {
                 r.json().then((newReview) => onAddReview(newReview))
-                navigate.push("/my_reviewed_items")
+                navigate("/my_reviewed_items")
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }

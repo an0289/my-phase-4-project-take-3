@@ -3,16 +3,8 @@ import ItemCard from './ItemCard'
 import { Container, Grid, Image, Item, Icon, Card, Divider, Segment, Button } from 'semantic-ui-react'
 
 
-function ItemList({ }) {
-    const [items, setItems] = useState([])
-
-    useEffect(() => {
-        fetch("/items").then((r) => {
-          if (r.ok) {
-            r.json().then((items) => setItems(items))
-          }
-        })
-      }, [])
+function ItemList({ items, setItems }) {
+    
 
     function handleAddReview(review) {
       const updatedItems = items.map((item) => {
