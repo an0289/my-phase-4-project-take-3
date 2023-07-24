@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button, Segment, List, Image, Item, Divider, Form, Input, TextArea } from 'semantic-ui-react'
+import { Button, Segment, List, Image, Item, Divider, Form, Input, TextArea, Label } from 'semantic-ui-react'
 
 function NewReview({ setIsAdd, onAddReview }) {
     const [title, setTitle] = useState("")
@@ -10,6 +10,7 @@ function NewReview({ setIsAdd, onAddReview }) {
 
     function handleSubmit(e) {
         e.preventDefault()
+        setIsAdd(false)
         fetch("/reviews", {
             method: "POST",
             headers: {
@@ -53,6 +54,11 @@ function NewReview({ setIsAdd, onAddReview }) {
                         onChange={(e) => setBody(e.target.value)}
                         />
                         </Form.Field>
+                        <Form.Field>
+                        {errors.map((err) => (
+                            <Label key={err}>{err}</Label>
+                        ))}
+                    </Form.Field>
                          <Button as='submit' size='tiny' inverted color='green' floated='right' >Submit Review</Button>
                      </Form>
                 </List.Content>

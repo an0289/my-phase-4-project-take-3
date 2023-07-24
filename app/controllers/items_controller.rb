@@ -13,6 +13,12 @@ class ItemsController < ApplicationController
         render json: item 
     end 
 
+    def destroy 
+        review = find_review 
+        review.destroy 
+        head :no_content 
+    end 
+
     private 
 
     def find_item

@@ -1,4 +1,5 @@
-import React, { useState, useNavigate } from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Button, Form, Segment, Divider, Container } from 'semantic-ui-react'
 
 function NewItem({ onAddItem }) {
@@ -7,7 +8,7 @@ function NewItem({ onAddItem }) {
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("")
     const [errors, setErrors] = useState([])
-    const navigate = useNavigate
+    const navigate = useNavigate()
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -25,7 +26,7 @@ function NewItem({ onAddItem }) {
         }).then((r) => {
             if (r.ok) {
                 r.json().then((newItem) => onAddItem(newItem))
-                navigate("/items")
+                navigate("/")
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }

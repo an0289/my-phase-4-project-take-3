@@ -3,9 +3,17 @@ import ReviewList from './ReviewList'
 import { Container, Grid, Image, Item, Icon, Card, Divider, Segment, Button } from 'semantic-ui-react'
 
 
-function ItemCard({ item, onAddReview }) {
+function ItemCard({ item, id, onAddReview, onDeleteItem }) {
     const [showReviews, setShowReviews] = useState(false)
     const [isLike, setIsLike] = useState(false)
+
+    function handleDeleteClick() {
+        fetch(`/items/${id}`, {
+            method: 'DELETE'
+        })
+        .then((r) => r.json())
+        .then(() => onDeleteItem(id))
+    }
 
     return (
         <Grid.Column stretched>
@@ -37,7 +45,7 @@ function ItemCard({ item, onAddReview }) {
                             ) : (
                             <Button color= 'teal' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>See Reviews</Button>
                              )}
-                            
+                            <Button onClick={handleDeleteClick} color='red' floated='left'>Delete Item</Button>
                             </Card.Header>
                         </Card.Content>
                     </Card>

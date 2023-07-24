@@ -5,7 +5,7 @@ import Login from '../pages/Login'
 import ItemList from '../pages/ItemList'
 import MyReviewedItemList from '../pages/MyReviewedItemList'
 import NewItem from '../pages/NewItem'
-import { Header, Divider, Image, Container, Button } from 'semantic-ui-react'
+import { Segment, Header, Divider, Image, Container, Button } from 'semantic-ui-react'
 import Background from '../assets/whale_wind_waker_bg.jpg'
 
 function App() {
@@ -31,7 +31,15 @@ function App() {
 
   if (!user) return <Login onLogin={setUser} />
 
+  function handleAddItem(newItem) {
+    setItems([...items, newItem])
+  }
 
+  function handleDeleteItem(id) {
+    const updatedItems = items.filter((item) => item.id !== id)
+    setItems(updatedItems)
+  }
+  
   function handleUpdateReview(updatedReview) {
       const updatedUserReviews = user.reviews.map((review) => review.id === updatedReview.id ? updatedReview : review)
       const updatedUser = { ...user, reviews: updatedUserReviews}
@@ -62,23 +70,18 @@ function App() {
       setItems(updatedItems)
   }
 
-  function handleAddItem(newItem) {
-    setItems([...items, newItem])
-  }
 
   return (
    <>
    <Container fluid>
-   <Divider hidden />
    <Header style={{ fontFamily: 'Papyrus' }} textAlign='right' size='huge'>
     Zelda Item Shop
     <Image src='../images/rupee.png' size='massive' centered/> 
     </Header>
-    <Header as='h3' style={{ fontFamily: 'Papyrus', paddingRight:30 }} textAlign='right'>
+    <Header as='h3' style={{ fontFamily: 'Papyrus', paddingLeft:15 }} textAlign='right'>
+    Welcome, {user.username}
     <Image circular src={user.image_url} bordered />
-    {user.username}
     </Header>
-   <Divider hidden />
     <NavBar user={user} setUser={setUser}/>
     </Container>
       <main>
@@ -87,7 +90,7 @@ function App() {
             element={<NewItem onAddItem={handleAddItem} setItems={setItems}/>}
           />
           <Route path="/"
-            element={<ItemList items={items} setItems={setItems}/>}
+            element={<ItemList items={items} setItems={setItems} onDeleteItem={handleDeleteItem}/>}
           />
           <Route path='/my_reviewed_items'
             element={<MyReviewedItemList user={user} onUpdateReview={handleUpdateReview} onDeleteReview={handleDeleteReview}/>}
