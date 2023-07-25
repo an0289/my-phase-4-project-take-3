@@ -29,15 +29,14 @@ function MyReviewedItem({ review, id, onUpdateReview, onDeleteReview }) {
     }
 
     function handleDeleteClick() {
-        fetch(`reviews/${id}`, {
+        fetch(`/reviews/${id}`, {
             method: "DELETE"
+        }).then((r) => {
+            if (r.ok) {
+                onDeleteReview(id)
+            }
         })
-        .then((r) => r.json())
-        .then((deletedReview) => {
-            onDeleteReview(deletedReview)
-        })
-        
-    }
+        }
 
     return (
         <Grid.Column stretched>
@@ -89,7 +88,7 @@ function MyReviewedItem({ review, id, onUpdateReview, onDeleteReview }) {
                     </Item.Content>
                 </Item>
             </Item.Group>
-            <Button size='tiny' inverted color='red' floated='right' >Delete Review</Button>
+            <Button onClick={handleDeleteClick} size='tiny' inverted color='red' floated='right' >Delete Review</Button>
             <Button onClick={() => setIsEdit(true)} size='tiny' inverted color='blue' floated='right' >Edit Review</Button>
             </Segment>
             </>

@@ -14,8 +14,8 @@ class ItemsController < ApplicationController
     end 
 
     def destroy 
-        review = find_review 
-        review.destroy 
+        item = find_item 
+        item.destroy 
         head :no_content 
     end 
 

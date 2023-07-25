@@ -56,16 +56,16 @@ function App() {
   }
 
   function handleDeleteReview(review) {
-      const updatedUserReviews = user.reviews.filter((review) => review.id !== review.id)
+      const updatedUserReviews = user.reviews.filter((rev) => rev.id !== review.id)
       const updatedUser = {...user, reviews: updatedUserReviews} 
       setUser(updatedUser)
 
       const updatedItems = items.map((item) => {
         if(item.id === review.item_id) {
-          const updatedItemReviews = item.reviews.filter((review) => review.id !== review.id)
-          item.reviews = updatedItemReviews
+          const updatedItemReviews = item.reviews.filter((rev) => rev.id !== review.id)
+          item = {...item, reviews: updatedItemReviews}
         }
-          return item
+          return item 
       })
       setItems(updatedItems)
   }

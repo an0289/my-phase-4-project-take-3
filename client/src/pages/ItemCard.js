@@ -9,11 +9,13 @@ function ItemCard({ item, id, onAddReview, onDeleteItem }) {
 
     function handleDeleteClick() {
         fetch(`/items/${id}`, {
-            method: 'DELETE'
+            method: "DELETE"
+        }).then((r) => {
+            if (r.ok) {
+                onDeleteItem(id)
+            }
         })
-        .then((r) => r.json())
-        .then(() => onDeleteItem(id))
-    }
+        }
 
     return (
         <Grid.Column stretched>
@@ -45,7 +47,7 @@ function ItemCard({ item, id, onAddReview, onDeleteItem }) {
                             ) : (
                             <Button color= 'teal' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>See Reviews</Button>
                              )}
-                            <Button onClick={handleDeleteClick} color='red' floated='left'>Delete Item</Button>
+                            <Button onClick={handleDeleteClick} color='red' floated='right'>Delete Item</Button>
                             </Card.Header>
                         </Card.Content>
                     </Card>

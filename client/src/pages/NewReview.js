@@ -6,7 +6,7 @@ function NewReview({ setIsAdd, onAddReview }) {
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
     const [errors, setErrors] = useState([])
-    const navigate = useNavigate
+    const navigate = useNavigate()
 
     function handleSubmit(e) {
         e.preventDefault()
