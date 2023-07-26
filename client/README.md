@@ -39,7 +39,7 @@ Login or Signup to view the collection of items
 
 Leave reviews on items and view your reviewed items in the 'My Reviewed Items' tab
 
-![AddReview](/my_vido_2.mp4)
+![AddReview](/my_video_2.mp4)
 
 Edit or delete reviews from the 'My Reviewed Items' tab 
 
