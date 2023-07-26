@@ -10,20 +10,19 @@ function NewReview({ setIsAdd, onAddReview }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        setIsAdd(false)
         fetch("/reviews", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                title, 
-                body,
+               title,
+               body
             }),
         }).then((r) => {
             if (r.ok) {
                 r.json().then((newReview) => onAddReview(newReview))
-                navigate("/my_reviewed_items")
+                console.log('here I am')
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }
@@ -31,39 +30,41 @@ function NewReview({ setIsAdd, onAddReview }) {
     }
 
     return (
-        <List.Item>
-                <List.Content>
-                    <Form onSubmit={handleSubmit}>
-                        <Form.Field>
-                        <label>Review Title</label>
-                        <input 
-                        type='text'
-                        name='title'
-                        value={title}
-                        placeholder='Title'
-                        onChange={(e) => setTitle(e.target.value)}
-                        />
-                        </Form.Field>
-                        <Form.Field>
-                        <label>Review Body</label>
-                        <textarea 
-                        type='text'
-                        name='body'
-                        value={body}
-                        placeholder='Body'
-                        onChange={(e) => setBody(e.target.value)}
-                        />
-                        </Form.Field>
-                        <Form.Field>
+        <Segment>
+        <Form onSubmit={handleSubmit}>
+            <Form.Field>
+            <label>Review Title</label>
+            <input 
+            type='text'
+            name='title'
+            value={title}
+            placeholder='Review Title'
+            onChange={(e) => setTitle(e.target.value)}
+            />
+            </Form.Field>
+            <Form.Field>
+            <label>Review Body</label>
+            <textarea 
+            type='text'
+            name='body'
+            value={body}
+            placeholder='Review Body'
+            onChange={(e) => setBody(e.target.value)}
+            />
+            </Form.Field>
+            <Form.Field>
                         {errors.map((err) => (
                             <Label key={err}>{err}</Label>
                         ))}
-                    </Form.Field>
-                         <Button as='submit' size='tiny' inverted color='green' floated='right' >Submit Review</Button>
-                     </Form>
-                </List.Content>
+            </Form.Field>
+            <Form.Field>
+            <Button as='submit' size='tiny' inverted color='green' floated='right' >Submit Review</Button>
+            </Form.Field>
+            <Form.Field>
             <Button size='tiny' color='red' onClick={() => setIsAdd(false)}>Cancel</Button>
-        </List.Item>
+            </Form.Field>
+        </Form>
+        </Segment>
     )
 }
 

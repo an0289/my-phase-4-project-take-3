@@ -8,7 +8,7 @@ function MyReviewedItemList({ user, onUpdateReview, onDeleteReview }) {
         <Grid columns={3} divided>
         <Grid.Row >
             {user.reviews.map((review => (
-            <MyReviewedItem onUpdateReview={onUpdateReview} onDeleteReview={onDeleteReview} key={review.id} id={review.id} review={review} /> 
+            <MyReviewedItem originalTitle={review.title} originalBody={review.body} onUpdateReview={onUpdateReview} onDeleteReview={onDeleteReview} key={review.id} id={review.id} review={review} /> 
             )))}
         </Grid.Row>
   </Grid>

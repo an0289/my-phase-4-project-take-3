@@ -45,9 +45,12 @@ function ItemCard({ item, id, onAddReview, onDeleteItem }) {
                             {showReviews ? (
                             <ReviewList onAddReview={onAddReview} showReviews={showReviews} setShowReviews={setShowReviews} reviews={item.reviews} />
                             ) : (
+                            <>
                             <Button color= 'teal' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>See Reviews</Button>
-                             )}
                             <Button onClick={handleDeleteClick} color='red' floated='right'>Delete Item</Button>
+                            </>
+                             )}
+                            
                             </Card.Header>
                         </Card.Content>
                     </Card>

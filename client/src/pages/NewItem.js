@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button, Form, Segment, Divider, Container } from 'semantic-ui-react'
+import { Button, Form, Segment, Divider, Container, Label } from 'semantic-ui-react'
 
 function NewItem({ onAddItem }) {
     const [name, setName] = useState("")
@@ -78,6 +78,11 @@ function NewItem({ onAddItem }) {
             placeholder='Item Price'
             onChange={(e) => setPrice(e.target.value)}
             />
+            </Form.Field>
+            <Form.Field>
+                {errors.map((err) => (
+                    <Label key={err}>{err}</Label>
+                ))}
             </Form.Field>
         <Form.Field>
         <Button size='tiny' inverted color='green' floated='right'>Submit</Button>

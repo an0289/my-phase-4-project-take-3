@@ -39,6 +39,17 @@ function App() {
     const updatedItems = items.filter((item) => item.id !== id)
     setItems(updatedItems)
   }
+
+  function handleAddReview(newReview) {
+    const updatedItems = items.map((item) => {
+      if(item.id === newReview.item_id) {
+        const updatedItemReviews = [...item.reviews, newReview]
+        item.reviews = updatedItemReviews 
+      }
+        return item 
+    })
+    setItems(updatedItems)
+  }
   
   function handleUpdateReview(updatedReview) {
       const updatedUserReviews = user.reviews.map((review) => review.id === updatedReview.id ? updatedReview : review)
@@ -55,30 +66,37 @@ function App() {
       setItems(updatedItems)
   }
 
-  function handleDeleteReview(review) {
-      const updatedUserReviews = user.reviews.filter((rev) => rev.id !== review.id)
+  function handleDeleteReview(deletedReview) {
+    debugger
+      const updatedUserReviews = user.reviews.filter((rev) => rev.id !== deletedReview.id)
       const updatedUser = {...user, reviews: updatedUserReviews} 
       setUser(updatedUser)
+      setItems({...items, reviews: updatedUserReviews})
+       
 
-      const updatedItems = items.map((item) => {
-        if(item.id === review.item_id) {
-          const updatedItemReviews = item.reviews.filter((rev) => rev.id !== review.id)
-          item = {...item, reviews: updatedItemReviews}
-        }
-          return item 
-      })
-      setItems(updatedItems)
+      // const updatedItems = items.map((item) => {
+      //   if(item.id === review.item_id) {
+      //     const updatedReviews = item.reviews.filter((rev) => rev.id !== review.id)
+      //     const newItem = {...item, reviews: updatedReviews}
+      //     return newItem
+
+      //   }
+      //     return item 
+      // })
+      // setItems(updatedItems)
+      // setUser({...user, items: updatedItems})
+      
   }
 
 
   return (
    <>
    <Container fluid>
-   <Header style={{ fontFamily: 'Papyrus' }} textAlign='right' size='huge'>
+   <Header style={{ fontFamily: 'Papyrus', paddingLeft:15 }} textAlign='left' size='huge'>
     Zelda Item Shop
     <Image src='../images/rupee.png' size='massive' centered/> 
     </Header>
-    <Header as='h3' style={{ fontFamily: 'Papyrus', paddingLeft:15 }} textAlign='right'>
+    <Header as='h3' style={{ fontFamily: 'Papyrus' }} textAlign='right'>
     Welcome, {user.username}
     <Image circular src={user.image_url} bordered />
     </Header>

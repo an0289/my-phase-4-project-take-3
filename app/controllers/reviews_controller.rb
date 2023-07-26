@@ -10,7 +10,8 @@ class ReviewsController < ApplicationController
     end 
 
     def create 
-        review = @current_user.reviews.create!(review_params)
+        # review = @current_user.reviews.create!(review_params)
+        review = Review.create!(review_params)
         render json: review, status: :created 
     end
     
@@ -21,9 +22,9 @@ class ReviewsController < ApplicationController
     end 
 
     def destroy 
-        review = Review.find(params[:id]) 
-        review.destroy 
-        head :no_content 
+        review = find_review 
+        review.destroy  
+        render json: review 
     end 
 
     private 

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Grid, Image, Item, Icon, Card, Segment, Divider, Header, Button, Form, TextArea, Input } from 'semantic-ui-react'
 
-function MyReviewedItem({ review, id, onUpdateReview, onDeleteReview }) {
+function MyReviewedItem({ review, id, originalBody, originalTitle, onUpdateReview, onDeleteReview }) {
     const [isEdit, setIsEdit] = useState(false)
-    const [title, setTitle] = useState("")
-    const [body, setBody] = useState("")
+    const [title, setTitle] = useState(originalTitle)
+    const [body, setBody] = useState(originalBody)
     const [errors, setErrors] = useState([])
 
     function handleSubmit(e) {
@@ -33,7 +33,7 @@ function MyReviewedItem({ review, id, onUpdateReview, onDeleteReview }) {
             method: "DELETE"
         }).then((r) => {
             if (r.ok) {
-                onDeleteReview(id)
+                r.json().then((deletedReview) => onDeleteReview(deletedReview))
             }
         })
         }
