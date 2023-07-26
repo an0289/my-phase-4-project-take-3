@@ -4,6 +4,7 @@ import { Button, Segment, List, Image, Item, Divider } from 'semantic-ui-react'
 function Review({ review }) {
 
     return (
+    <Segment>
         <List.Item>
                 <Image avatar src={review.image_url}/>
                 <List.Content>
@@ -12,6 +13,7 @@ function Review({ review }) {
                     <List.Description>{review.body}</List.Description>
                 </List.Content>
         </List.Item>
+        </Segment>
     )
 }
 

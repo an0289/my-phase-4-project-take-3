@@ -38,7 +38,11 @@ function NewItem({ onAddItem }) {
     <>
     <Divider hidden />
     <Container>
-    <Segment raised>
+    <Segment color='violet' raised>
+    <Label size='massive' as='a' color='black' ribbon>
+          Add a New Item
+    </Label>
+    <Divider hidden />
     <Form onSubmit={handleSubmit}>
         <Form.Field>
             <label>Item Name</label>
@@ -92,6 +96,7 @@ function NewItem({ onAddItem }) {
     <Divider hidden />
     <Divider hidden />
     </Segment>
+    <Divider hidden />
     </Container>
     </>
     )

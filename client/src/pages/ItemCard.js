@@ -21,7 +21,7 @@ function ItemCard({ item, id, onAddReview, onDeleteItem }) {
         <Grid.Column stretched>
                 <Segment >
                 <Image centered src={item.image_url} height={350}/>
-                    <Card raised fluid color='green' >
+                    <Card raised fluid color='violet' >
                         <Card.Content>
                             <Card.Header>
                                 {item.name}
@@ -46,7 +46,7 @@ function ItemCard({ item, id, onAddReview, onDeleteItem }) {
                             <ReviewList onAddReview={onAddReview} showReviews={showReviews} setShowReviews={setShowReviews} itemId={id} reviews={item.reviews} />
                             ) : (
                             <>
-                            <Button color= 'teal' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>See Reviews</Button>
+                            <Button inverted color= 'violet' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>See Reviews</Button>
                             {/* <Button onClick={handleDeleteClick} color='red' floated='right'>Delete Item</Button> */}
                             </>
                              )}

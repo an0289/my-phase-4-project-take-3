@@ -22,8 +22,8 @@ function ReviewList({ reviews, showReviews, setShowReviews, onAddReview, itemId 
         ))}
         </List>
         )}
-        <Button color= 'orange' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>Hide Reviews</Button>
-        <Button onClick={() => setIsAdd(true)}color= 'blue' floated='left'>Add Review</Button>
+        <Button inverted color= 'violet' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>Hide Reviews</Button>
+        <Button onClick={() => setIsAdd(true)} inverted color= 'green' floated='left'>Add Review</Button>
         </Segment>
         )}
         </>
