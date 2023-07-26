@@ -7,15 +7,15 @@ function ItemCard({ item, id, onAddReview, onDeleteItem }) {
     const [showReviews, setShowReviews] = useState(false)
     const [isLike, setIsLike] = useState(false)
 
-    function handleDeleteClick() {
-        fetch(`/items/${id}`, {
-            method: "DELETE"
-        }).then((r) => {
-            if (r.ok) {
-                onDeleteItem(id)
-            }
-        })
-        }
+    // function handleDeleteClick() {
+    //     fetch(`/items/${id}`, {
+    //         method: "DELETE"
+    //     }).then((r) => {
+    //         if (r.ok) {
+    //             onDeleteItem(id)
+    //         }
+    //     })
+    //     }
 
     return (
         <Grid.Column stretched>
@@ -47,7 +47,7 @@ function ItemCard({ item, id, onAddReview, onDeleteItem }) {
                             ) : (
                             <>
                             <Button color= 'teal' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>See Reviews</Button>
-                            <Button onClick={handleDeleteClick} color='red' floated='right'>Delete Item</Button>
+                            {/* <Button onClick={handleDeleteClick} color='red' floated='right'>Delete Item</Button> */}
                             </>
                              )}
                             

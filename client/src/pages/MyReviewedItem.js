@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Grid, Image, Item, Icon, Card, Segment, Divider, Header, Button, Form, TextArea, Input } from 'semantic-ui-react'
+import { Grid, Image, Item, Icon, Card, Segment, Divider, Header, Button, Form, TextArea, Input, Label } from 'semantic-ui-react'
 
 function MyReviewedItem({ review, id, originalBody, originalTitle, onUpdateReview, onDeleteReview }) {
     const [isEdit, setIsEdit] = useState(false)
@@ -68,11 +68,17 @@ function MyReviewedItem({ review, id, originalBody, originalTitle, onUpdateRevie
                         onChange={(e) => setBody(e.target.value)}
                         />
                         </Form.Field>
-                         <Button as='submit' size='tiny' inverted color='green' floated='right' >Submit Edit</Button>
+                        <Form.Field>
+                        {errors.map((err) => (
+                            <Label key={err}>{err}</Label>
+                        ))}
+                        </Form.Field>
+                         <Button type='submit' size='tiny' inverted color='green' floated='right' >Submit Edit</Button>
+                         <Button onClick={() => setIsEdit(false)} size='tiny' inverted color='red' floated='left' >Cancel Edit</Button>
                      </Form>
+                     
                  </Item>
              </Item.Group>
-             <Button onClick={() => setIsEdit(false)} size='tiny' inverted color='red' floated='left' >Cancel Edit</Button>
              </Segment>
             </>
             ) : (
