@@ -1,4 +1,6 @@
-# Overview 
+# My Phase 4 Project: Zelda Item Shop 
+
+## Overview 
 
 Zelda Item Shop is a small shop specializing in items found in The Legend of Zelda: Wind Waker (purely because their item designs are so adorable). Logged-in users are able to scroll through items, leave reviews, edit and delete their reviews, and add items they feel are missing from the collection. So, please be sure to signup if you do not already have an account! 
 
@@ -30,12 +32,22 @@ npm start
 ## Usage
 
 Login or Signup to view the collection of items 
-![Login](/My Video.mp4)
+
+![Login](/my_video.mp4)
+
+![Signup](.my_video_1.mp4)
+
 Leave reviews on items and view your reviewed items in the 'My Reviewed Items' tab
+
+![AddReview](/my_vido_2.mp4)
 
 Edit or delete reviews from the 'My Reviewed Items' tab 
 
+![EditDelete](/my_video_3.mp4)
+
 Add Items to the collection in the 'New Item' tab 
+
+![AddItem](/my_video_4.mp4)
 
 ## Requirements 
 
