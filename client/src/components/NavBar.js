@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { Menu, Header, Input, Divider } from 'semantic-ui-react'
+import { Menu, Header, Input, Divider, Search } from 'semantic-ui-react'
 
 function NavBar({ user, setUser }) {
+    const [searchWord, setSearchWord] = useState("")
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE"}).then((r) => {
             if (r.ok) {
@@ -11,6 +12,7 @@ function NavBar({ user, setUser }) {
         })
     }
 
+
     return (
 <div>
 <Menu pointing secondary size='massive'>
@@ -18,9 +20,6 @@ function NavBar({ user, setUser }) {
     <Menu.Item style={{ fontFamily: 'Papyrus' }} as={NavLink} to='/my_reviewed_items' name='my reviewed items' />
     <Menu.Item style={{ fontFamily: 'Papyrus' }} as={NavLink} to='/new' name='new item' />
     <Menu.Menu position='right'>
-    <Menu.Item>
-        <Input icon='search' placeholder='Search...' />
-    </Menu.Item>
     <Menu.Item style={{ fontFamily: 'Papyrus' }} onClick={handleLogoutClick} name='logout' />
     </Menu.Menu>
 </Menu>
