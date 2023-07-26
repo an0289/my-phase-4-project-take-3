@@ -11,6 +11,7 @@ function NewItem({ onAddItem }) {
     const navigate = useNavigate()
 
     function handleSubmit(e) {
+        debugger 
         e.preventDefault()
         fetch("/items", {
             method: "POST",

@@ -3,7 +3,7 @@ import Review from './Review'
 import NewReviewForm from '../components/NewReviewForm'
 import { Button, Segment, List, Image, Item, Divider, Header } from 'semantic-ui-react'
 
-function ReviewList({ reviews, showReviews, setShowReviews, onAddReview }) {
+function ReviewList({ reviews, showReviews, setShowReviews, onAddReview, itemId }) {
     const [isAdd, setIsAdd] = useState(false)
 
     return (
@@ -11,7 +11,7 @@ function ReviewList({ reviews, showReviews, setShowReviews, onAddReview }) {
          
         {isAdd ? ( 
         <Segment>
-        <NewReviewForm onAddReview={onAddReview} setIsAdd={setIsAdd}/>
+        <NewReviewForm itemId={itemId} onAddReview={onAddReview} setIsAdd={setIsAdd}/>
         </Segment>
         ) : (
         <Segment raised>

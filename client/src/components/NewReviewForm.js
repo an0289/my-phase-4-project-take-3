@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Segment, List, Image, Item, Divider, Form, Input, TextArea, Label } from 'semantic-ui-react'
 
-function NewReviewForm({ setIsAdd, onAddReview }) {
+function NewReviewForm({ setIsAdd, onAddReview, itemId }) {
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
     const [errors, setErrors] = useState([])
     const navigate = useNavigate()
 
-    function handleSubmit(e) {
+    function handleSubmit(e) { 
         e.preventDefault()
         setIsAdd(false)
         fetch("/reviews", {
@@ -18,7 +18,8 @@ function NewReviewForm({ setIsAdd, onAddReview }) {
             },
             body: JSON.stringify({
                 title,
-                body
+                body,
+                item_id: itemId 
             }),
         }).then((r) => {
             if (r.ok) {

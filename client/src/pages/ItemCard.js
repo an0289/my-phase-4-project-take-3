@@ -43,7 +43,7 @@ function ItemCard({ item, id, onAddReview, onDeleteItem }) {
                             <img height={30} src='../images/rupee.png'/>
                             {item.price}
                             {showReviews ? (
-                            <ReviewList onAddReview={onAddReview} showReviews={showReviews} setShowReviews={setShowReviews} reviews={item.reviews} />
+                            <ReviewList onAddReview={onAddReview} showReviews={showReviews} setShowReviews={setShowReviews} itemId={id} reviews={item.reviews} />
                             ) : (
                             <>
                             <Button color= 'teal' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>See Reviews</Button>
