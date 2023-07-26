@@ -71,19 +71,19 @@ function App() {
       const updatedUserReviews = user.reviews.filter((rev) => rev.id !== deletedReview.id)
       const updatedUser = {...user, reviews: updatedUserReviews} 
       setUser(updatedUser)
-      setItems({...items, reviews: updatedUserReviews})
+      // setItems({...items, reviews: updatedUserReviews})
        
 
-      // const updatedItems = items.map((item) => {
-      //   if(item.id === review.item_id) {
-      //     const updatedReviews = item.reviews.filter((rev) => rev.id !== review.id)
-      //     const newItem = {...item, reviews: updatedReviews}
-      //     return newItem
+      const updatedItems = items.map((item) => {
+        if(item.id === deletedReview.item_id) {
+          const updatedReviews = item.reviews.filter((rev) => rev.id !== deletedReview.id)
+          const newItem = {...item, reviews: updatedReviews}
+          return newItem
 
-      //   }
-      //     return item 
-      // })
-      // setItems(updatedItems)
+        }
+          return item 
+      })
+      setItems(updatedItems)
       // setUser({...user, items: updatedItems})
       
   }
