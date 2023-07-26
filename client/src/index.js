@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client'
 import { UserProvider } from './contexts/UserContext'
+import { ItemProvider } from './contexts/ItemContext';
 import './index.css';
 import 'semantic-ui-css/semantic.min.css'
 import { BrowserRouter } from "react-router-dom"
@@ -10,9 +11,11 @@ import reportWebVitals from './reportWebVitals';
 const root = createRoot(document.getElementById("root"))
 root.render(
   <BrowserRouter>
-  <UserProvider>
-    <App />
-  </UserProvider>
+    <UserProvider>
+    <ItemProvider>
+      <App />
+    </ItemProvider>
+    </UserProvider>
   </BrowserRouter>,
 );
 

@@ -12,11 +12,6 @@ function Login() {
         <div style={{ backgroundImage: `url(${Background})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '99vh' }} >
         <Divider hidden />
         <Container style={{ paddingLeft:260 }}>
-        {/* <Segment  style={{ height:520, width:700 }}raised>
-            <Header style={{ fontFamily: 'Papyrus' }} size='huge' textAlign='center'>
-                Zelda Item Shop
-                <Image src='../images/rupee.png' size='massive' centered/> 
-                </Header> */}
             {showLogin ? (
             <>
             <Segment  color='violet' style={{ height:520, width:700 }}raised>

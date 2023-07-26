@@ -1,11 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Grid, Image, Item, Icon, Card, Segment, Divider, Header, Button, Form, TextArea, Input, Label } from 'semantic-ui-react'
+import { UserContext } from '../contexts/UserContext'
+import { ItemContext } from '../contexts/ItemContext'
 
-function MyReviewedItem({ review, id, originalBody, originalTitle, onUpdateReview, onDeleteReview }) {
+function MyReviewedItem({ review, id, originalBody, originalTitle }) {
+    const {user, setUser} = useContext(UserContext)
+    const {items, setItems} = useContext(ItemContext)
     const [isEdit, setIsEdit] = useState(false)
     const [title, setTitle] = useState(originalTitle)
     const [body, setBody] = useState(originalBody)
     const [errors, setErrors] = useState([])
+
+    function handleUpdateReview(updatedReview) {
+        const updatedUserReviews = user.reviews.map((review) => review.id === updatedReview.id ? updatedReview : review)
+        const updatedUser = { ...user, reviews: updatedUserReviews}
+        setUser(updatedUser)
+  
+        const updatedItems = items.map((item) => {
+          if(item.id === updatedReview.item_id) {
+            const updatedItemReviews = item.reviews.map((review) => review.id === updatedReview.id ? updatedReview : item)
+            const newItem = {...item, reviews: updatedItemReviews}
+            return newItem 
+          }
+            return item 
+        })
+        setItems(updatedItems)
+    }
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -21,11 +41,29 @@ function MyReviewedItem({ review, id, originalBody, originalTitle, onUpdateRevie
             }),
         }).then((r) => {
             if (r.ok) {
-                r.json().then((updatedReview) => onUpdateReview(updatedReview))
+                r.json().then((updatedReview) => handleUpdateReview(updatedReview))
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }
         })
+    }
+
+    function handleDeleteReview(deletedReview) {
+        const updatedUserReviews = user.reviews.filter((rev) => rev.id !== deletedReview.id)
+        const updatedUser = {...user, reviews: updatedUserReviews} 
+        setUser(updatedUser)
+        
+         
+        const updatedItems = items.map((item) => {
+          if(item.id === deletedReview.item_id) {
+            const updatedReviews = item.reviews.filter((rev) => rev.id !== deletedReview.id)
+            const newItem = {...item, reviews: updatedReviews}
+            return newItem
+  
+          }
+            return item 
+        })
+        setItems(updatedItems)
     }
 
     function handleDeleteClick() {
@@ -33,7 +71,7 @@ function MyReviewedItem({ review, id, originalBody, originalTitle, onUpdateRevie
             method: "DELETE"
         }).then((r) => {
             if (r.ok) {
-                r.json().then((deletedReview) => onDeleteReview(deletedReview))
+                r.json().then((deletedReview) => handleDeleteReview(deletedReview))
             }
         })
         }

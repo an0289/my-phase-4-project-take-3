@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import ItemCard from './ItemCard'
 import { Container, Grid, Image, Item, Icon, Card, Divider, Segment, Button } from 'semantic-ui-react'
+import { ItemContext } from '../contexts/ItemContext'
 
-
-function ItemList({ items, setItems, onDeleteItem, onAddReview }) {
+function ItemList() {
+  const {items} = useContext(ItemContext)
 
     return (
     <Grid columns={3} divided>
         <Grid.Row >
             {items.map((item => (
-            <ItemCard key={item.id} id={item.id} item={item} onAddReview={onAddReview} onDeleteItem={onDeleteItem} /> 
+            <ItemCard key={item.id} id={item.id} item={item} /> 
             )))}
         </Grid.Row>
   </Grid>

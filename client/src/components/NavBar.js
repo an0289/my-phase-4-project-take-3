@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Menu, Header, Input, Divider, Search } from 'semantic-ui-react'
+import { UserContext } from '../contexts/UserContext'
 
-function NavBar({ user, setUser }) {
-    const [searchWord, setSearchWord] = useState("")
+function NavBar() {
+    const {setUser} = useContext(UserContext)
+
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE"}).then((r) => {
             if (r.ok) {

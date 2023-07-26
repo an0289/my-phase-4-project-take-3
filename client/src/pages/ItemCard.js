@@ -1,18 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import ReviewList from './ReviewList'
 import { Container, Grid, Image, Item, Icon, Card, Divider, Segment, Button } from 'semantic-ui-react'
+import { ItemContext } from '../contexts/ItemContext'
 
 
-function ItemCard({ item, id, onAddReview, onDeleteItem }) {
+function ItemCard({ item, id }) {
+    const {items, setItems} = useContext(ItemContext)
     const [showReviews, setShowReviews] = useState(false)
     const [isLike, setIsLike] = useState(false)
+
+    // function handleDeleteItem(id) {
+    //     const updatedItems = items.filter((item) => item.id !== id)
+    //     setItems(updatedItems)
+    //   }
 
     // function handleDeleteClick() {
     //     fetch(`/items/${id}`, {
     //         method: "DELETE"
     //     }).then((r) => {
     //         if (r.ok) {
-    //             onDeleteItem(id)
+    //             handleDeleteItem(id)
     //         }
     //     })
     //     }
@@ -43,7 +50,7 @@ function ItemCard({ item, id, onAddReview, onDeleteItem }) {
                             <img height={30} src='../images/rupee.png'/>
                             {item.price}
                             {showReviews ? (
-                            <ReviewList onAddReview={onAddReview} showReviews={showReviews} setShowReviews={setShowReviews} itemId={id} reviews={item.reviews} />
+                            <ReviewList showReviews={showReviews} setShowReviews={setShowReviews} itemId={id} reviews={item.reviews} />
                             ) : (
                             <>
                             <Button inverted color= 'violet' floated='right' onClick={() => setShowReviews((showReviews) => !showReviews)}>See Reviews</Button>

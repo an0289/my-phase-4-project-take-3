@@ -1,12 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Segment, List, Image, Item, Divider, Form, Input, TextArea, Label } from 'semantic-ui-react'
+import { ItemContext } from '../contexts/ItemContext'
+import { UserContext } from '../contexts/UserContext'
 
-function NewReviewForm({ setIsAdd, onAddReview, itemId }) {
+function NewReviewForm({ setIsAdd, itemId }) {
+    const {items, setItems} = useContext(ItemContext)
+    const {user, setUser} = useContext(UserContext)
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
     const [errors, setErrors] = useState([])
     const navigate = useNavigate()
+
+    function handleAddReview(newReview) {
+        const updatedUserReviews = [...user.reviews, newReview]
+        const updatedUser = {...user, reviews: updatedUserReviews}
+        setUser(updatedUser)
+      
+        const updatedItems = items.map((item) => {
+          if(item.id === newReview.item_id) {
+            const updatedItemReviews = [...item.reviews, newReview]
+            const newItem = {...item, reviews: updatedItemReviews}
+            return newItem 
+          }
+            return item 
+        })
+        setItems(updatedItems)
+      }
 
     function handleSubmit(e) { 
         e.preventDefault()
@@ -23,7 +43,7 @@ function NewReviewForm({ setIsAdd, onAddReview, itemId }) {
             }),
         }).then((r) => {
             if (r.ok) {
-                r.json().then((newReview) => onAddReview(newReview))
+                r.json().then((newReview) => handleAddReview(newReview))
                 navigate("/my_reviewed_items")
             } else {
                 r.json().then((err) => setErrors(err.errors))

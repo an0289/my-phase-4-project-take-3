@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Form, Segment, Divider, Container, Label } from 'semantic-ui-react'
+import { ItemContext } from '../contexts/ItemContext'
 
-function NewItem({ onAddItem }) {
+function NewItem() {
+    const {items, setItems} = useContext(ItemContext)
     const [name, setName] = useState("")
     const [imageUrl, setImageUrl] = useState("")
     const [description, setDescription] = useState("")
     const [price, setPrice] = useState("")
     const [errors, setErrors] = useState([])
     const navigate = useNavigate()
+
+    function handleAddItem(newItem) {
+        setItems([...items, newItem])
+      }
 
     function handleSubmit(e) {
         debugger 
@@ -26,7 +32,7 @@ function NewItem({ onAddItem }) {
             }),
         }).then((r) => {
             if (r.ok) {
-                r.json().then((newItem) => onAddItem(newItem))
+                r.json().then((newItem) => handleAddItem(newItem))
                 navigate("/")
             } else {
                 r.json().then((err) => setErrors(err.errors))
