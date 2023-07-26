@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { UserContext } from '../contexts/UserContext'
 import NavBar from './NavBar'
 import Login from '../pages/Login'
 import ItemList from '../pages/ItemList'
@@ -9,18 +10,9 @@ import { Segment, Header, Divider, Image, Container, Button } from 'semantic-ui-
 import Background from '../assets/purple_wind_waker_bg.png'
 
 function App() {
-  const [user, setUser] = useState(null)
+  const {user, setUser} = useContext(UserContext)
   const [items, setItems] = useState([])
   
-  
-  useEffect(() => {
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user))
-      }
-    })
-  }, [])
-
   useEffect(() => {
     fetch("/items").then((r) => {
       if (r.ok) {
@@ -29,7 +21,7 @@ function App() {
     })
   }, [])
 
-  if (!user) return <Login onLogin={setUser} />
+  if (!user) return <Login />
 
   function handleAddItem(newItem) {
     setItems([...items, newItem])

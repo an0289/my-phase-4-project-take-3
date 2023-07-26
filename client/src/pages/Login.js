@@ -5,7 +5,7 @@ import { Form, Button, Header, Divider, Segment, Container, Image, Grid } from '
 import Background from '../assets/whale_wind_waker_bg.jpg'
 
 
-function Login({ onLogin }) {
+function Login() {
     const [showLogin, setShowLogin] = useState(true)
 
     return (
@@ -24,7 +24,7 @@ function Login({ onLogin }) {
                 Zelda Item Shop
                 <Image src='../images/rupee.png' size='massive' centered/> 
                 </Header>
-                <LoginForm onLogin={onLogin} />
+                <LoginForm />
                 <Divider hidden />
                 <Container fluid text>
                 <Header as='h3' style={{ fontFamily: 'Papyrus' }} textAlign='center'> 
@@ -42,7 +42,7 @@ function Login({ onLogin }) {
                 Zelda Item Shop
                 <Image src='../images/rupee.png' size='massive' centered/> 
                 </Header>
-                <SignUpForm onLogin={onLogin} />
+                <SignUpForm />
                 <Divider hidden />
                 <Container fluid text>
                 <Header as='h3' style={{ fontFamily: 'Papyrus' }} textAlign='center'>

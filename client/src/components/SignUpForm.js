@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Container, Button, Form, Segment, Divider, Label, Header } from 'semantic-ui-react'
+import { UserContext } from '../contexts/UserContext'
 
-function SignUpForm({ onLogin }) {
+function SignUpForm() {
+    const {setUser} = useContext(UserContext)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
@@ -24,7 +26,7 @@ function SignUpForm({ onLogin }) {
             }),
         }).then((r) => {
             if (r.ok) {
-                r.json().then((user) => onLogin(user))
+                r.json().then((user) => setUser(user))
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }
