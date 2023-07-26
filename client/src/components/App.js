@@ -5,6 +5,7 @@ import Login from '../pages/Login'
 import ItemList from '../pages/ItemList'
 import MyReviewedItemList from '../pages/MyReviewedItemList'
 import NewItem from '../pages/NewItem'
+// import NewReviewForm from '/NewReviewForm'
 import { Segment, Header, Divider, Image, Container, Button } from 'semantic-ui-react'
 import Background from '../assets/whale_wind_waker_bg.jpg'
 
@@ -41,10 +42,15 @@ function App() {
   }
 
   function handleAddReview(newReview) {
+    const updatedUserReviews = [...user.reviews, newReview]
+    const updatedUser = {...user, reviews: updatedUserReviews}
+    setUser(updatedUser)
+
     const updatedItems = items.map((item) => {
       if(item.id === newReview.item_id) {
         const updatedItemReviews = [...item.reviews, newReview]
-        item.reviews = updatedItemReviews 
+        const newItem = {...item, reviews: updatedItemReviews}
+        return newItem 
       }
         return item 
     })
@@ -59,7 +65,8 @@ function App() {
       const updatedItems = items.map((item) => {
         if(item.id === updatedReview.item_id) {
           const updatedItemReviews = item.reviews.map((review) => review.id === updatedReview.id ? updatedReview : item)
-          item.reviews = updatedItemReviews 
+          const newItem = {...item, reviews: updatedItemReviews}
+          return newItem 
         }
           return item 
       })
@@ -67,13 +74,11 @@ function App() {
   }
 
   function handleDeleteReview(deletedReview) {
-    debugger
       const updatedUserReviews = user.reviews.filter((rev) => rev.id !== deletedReview.id)
       const updatedUser = {...user, reviews: updatedUserReviews} 
       setUser(updatedUser)
-      // setItems({...items, reviews: updatedUserReviews})
+      
        
-
       const updatedItems = items.map((item) => {
         if(item.id === deletedReview.item_id) {
           const updatedReviews = item.reviews.filter((rev) => rev.id !== deletedReview.id)
@@ -84,7 +89,7 @@ function App() {
           return item 
       })
       setItems(updatedItems)
-      // setUser({...user, items: updatedItems})
+
       
   }
 
@@ -108,7 +113,7 @@ function App() {
             element={<NewItem onAddItem={handleAddItem} setItems={setItems}/>}
           />
           <Route path="/"
-            element={<ItemList items={items} setItems={setItems} onDeleteItem={handleDeleteItem}/>}
+            element={<ItemList items={items} setItems={setItems} onAddReview={handleAddReview} onDeleteItem={handleDeleteItem}/>}
           />
           <Route path='/my_reviewed_items'
             element={<MyReviewedItemList user={user} onUpdateReview={handleUpdateReview} onDeleteReview={handleDeleteReview}/>}

@@ -1,6 +1,6 @@
 import react, { useState } from "react";
 import Review from './Review'
-import NewReview from './NewReview'
+import NewReviewForm from '../components/NewReviewForm'
 import { Button, Segment, List, Image, Item, Divider, Header } from 'semantic-ui-react'
 
 function ReviewList({ reviews, showReviews, setShowReviews, onAddReview }) {
@@ -8,7 +8,11 @@ function ReviewList({ reviews, showReviews, setShowReviews, onAddReview }) {
 
     return (
         <>
-        {isAdd ? ( <NewReview onAddReview={onAddReview} setIsAdd={setIsAdd}/>
+         
+        {isAdd ? ( 
+        <Segment>
+        <NewReviewForm onAddReview={onAddReview} setIsAdd={setIsAdd}/>
+        </Segment>
         ) : (
         <Segment raised>
         {reviews.length === 0 ? (<Header as='h4'>Be the first to add a review</Header>) : (

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Segment, List, Image, Item, Divider, Form, Input, TextArea, Label } from 'semantic-ui-react'
 
-function NewReview({ setIsAdd, onAddReview }) {
+function NewReviewForm({ setIsAdd, onAddReview }) {
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
     const [errors, setErrors] = useState([])
@@ -10,19 +10,20 @@ function NewReview({ setIsAdd, onAddReview }) {
 
     function handleSubmit(e) {
         e.preventDefault()
+        setIsAdd(false)
         fetch("/reviews", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-               title,
-               body
+                title,
+                body
             }),
         }).then((r) => {
             if (r.ok) {
                 r.json().then((newReview) => onAddReview(newReview))
-                console.log('here I am')
+                navigate("/my_reviewed_items")
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }
@@ -30,7 +31,6 @@ function NewReview({ setIsAdd, onAddReview }) {
     }
 
     return (
-        <Segment>
         <Form onSubmit={handleSubmit}>
             <Form.Field>
             <label>Review Title</label>
@@ -58,14 +58,13 @@ function NewReview({ setIsAdd, onAddReview }) {
                         ))}
             </Form.Field>
             <Form.Field>
-            <Button as='submit' size='tiny' inverted color='green' floated='right' >Submit Review</Button>
+            <Button type='submit' size='tiny' inverted color='green' floated='right' >Submit Review</Button>
             </Form.Field>
             <Form.Field>
             <Button size='tiny' color='red' onClick={() => setIsAdd(false)}>Cancel</Button>
             </Form.Field>
         </Form>
-        </Segment>
     )
 }
 
-export default NewReview 
+    export default NewReviewForm 

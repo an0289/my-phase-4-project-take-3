@@ -10,14 +10,13 @@ class ReviewsController < ApplicationController
     end 
 
     def create 
-        # review = @current_user.reviews.create!(review_params)
-        review = Review.create!(review_params)
+        review = @current_user.reviews.create!(review_params)
         render json: review, status: :created 
     end
     
     def update
-        review = find_review
-        review.update 
+        review = @curret_user.reviews.find_review
+        review.update!(review_params) 
         render json: review 
     end 
 
