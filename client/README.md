@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Overview 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Zelda Item Shop is a small shop specializing in items found in The Legend of Zelda: Wind Waker (purely because their item designs are so adorable). Logged-in users are able to scroll through items, leave reviews, edit and delete their reviews, and add items they feel are missing from the collection. So, please be sure to signup if you do not already have an account! 
 
-## Available Scripts
+## Programming Languages 
 
-In the project directory, you can run:
+This app was created using React.js for the frontend and Ruby on Rails for the backend, and sqlite3 is used to manage the database  
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Run the following commands in two separate consoles to install all the necessary packages and dependencies: 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Backend (Ruby on Rails):
 
-### `npm test`
+```bash
+bundle install 
+rails db:create db:migrate db:seed 
+rails s 
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Frontend (React.js): 
 
-### `npm run build`
+Navigate into the client folder and run:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install 
+npm start 
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Login or Signup to view the collection of items 
+![Login](/My Video.mp4)
+Leave reviews on items and view your reviewed items in the 'My Reviewed Items' tab
 
-### `npm run eject`
+Edit or delete reviews from the 'My Reviewed Items' tab 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Add Items to the collection in the 'New Item' tab 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Requirements 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Ruby 2.7.4
+- NodeJS (v16) and npm
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Contributing
+Thank you to [Create React App](https://github.com/facebook/create-react-app) for providing the starter code for my app
 
-## Learn More
+Thank you to [Semantic UI React](https://react.semantic-ui.com/) for the webpage design
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Thank you to [FAVPNG](https://favpng.com/) for the item images
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Thank you to [Wallpaper Abyss](https://wall.alphacoders.com/) for the background images 
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT](https://choosealicense.com/licenses/mit/)
