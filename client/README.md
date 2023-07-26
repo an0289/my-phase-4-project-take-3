@@ -33,21 +33,21 @@ npm start
 
 Login or Signup to view the collection of items 
 
-![Login](/my_video.mp4)
+![Login](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXQxZWFtYXUwMDVidmMzZ2JicWtnN2J5N2wwenR3N3dwMWo5cDNybyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bftNvaoqrDL1sJ5HR4/giphy.gif)
 
-![Signup](.my_video_1.mp4)
+![Signup](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYThvbW9kaDl5ZXJiMHl0YjN4OGxoZ3h4eXc1N3JwNG1qNDc3Z2UxayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/svqTfc6pozOl3gOwl5/giphy.gif)
 
 Leave reviews on items and view your reviewed items in the 'My Reviewed Items' tab
 
-![AddReview](/my_video_2.mp4)
+![AddReview](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzJ5bWQ1Y3RiazNseXdnNzgxZ2sydXU2aHB6ZTQzbnUxbXMwY3dreiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6dRoAM3eRqQ05jtrax/giphy.gif)
 
 Edit or delete reviews from the 'My Reviewed Items' tab 
 
-![EditDelete](/my_video_3.mp4)
+![EditDelete](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnNqZ2owYmZueWdiM3JmOWpjcHBpMXY2NDFsenoweHY2amJtY2wzYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aKBRyYSKyGwI3eee6d/giphy.gif)
 
 Add Items to the collection in the 'New Item' tab 
 
-![AddItem](/my_video_4.mp4)
+![AddItem](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDd5bjlxZ2p6NTM4eHRudWI0ajh0eXZveWs5cXdyeXI5MzcyYzE1cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/laG8RvhFBtZEcDK3DH/giphy.gif)
 
 ## Requirements 
 
