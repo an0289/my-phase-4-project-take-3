@@ -8,7 +8,7 @@ function NewItem() {
     const [name, setName] = useState("")
     const [imageUrl, setImageUrl] = useState("")
     const [description, setDescription] = useState("")
-    const [price, setPrice] = useState("")
+    const [price, setPrice] = useState(0)
     const [errors, setErrors] = useState([])
     const navigate = useNavigate()
 
@@ -28,7 +28,7 @@ function NewItem() {
                 name, 
                 image_url: imageUrl,
                 description,
-                price
+                price: Number(price)
             }),
         }).then((r) => {
             if (r.ok) {
