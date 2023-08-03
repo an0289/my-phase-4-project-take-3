@@ -17,7 +17,6 @@ function NewItem() {
       }
 
     function handleSubmit(e) {
-        debugger 
         e.preventDefault()
         fetch("/items", {
             method: "POST",

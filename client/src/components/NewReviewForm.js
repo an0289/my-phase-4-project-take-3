@@ -30,7 +30,6 @@ function NewReviewForm({ setIsAdd, itemId }) {
 
     function handleSubmit(e) { 
         e.preventDefault()
-        setIsAdd(false)
         fetch("/reviews", {
             method: "POST",
             headers: {
@@ -74,9 +73,9 @@ function NewReviewForm({ setIsAdd, itemId }) {
             />
             </Form.Field>
             <Form.Field>
-                        {errors.map((err) => (
-                            <Label key={err}>{err}</Label>
-                        ))}
+                {errors.map((err) => (
+                    <Label key={err}>{err}</Label>
+                ))}
             </Form.Field>
             <Form.Field>
             <Button type='submit' size='tiny' inverted color='green' floated='right' >Submit Review</Button>
