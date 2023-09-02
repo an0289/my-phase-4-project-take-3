@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: :create
-    
-    # def index
-    #     render json: User.all
-    # end 
+    skip_before_action :authorize, only: [:create, :user_reviews]
+     
 
     def create 
         user = User.create!(user_params)
@@ -13,6 +10,13 @@ class UsersController < ApplicationController
 
     def show 
         render json: @current_user 
+    end 
+
+    #when we pass in a number, we should get the users that have the number or more reviews
+    def user_reviews
+        number = params[:n].to_i
+        users = User.all.filter {|user| user.reviews.count >= number}
+        render json: users 
     end 
 
     private 
