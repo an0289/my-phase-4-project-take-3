@@ -63,6 +63,8 @@ Thank you to [FAVPNG](https://favpng.com/) for the item images
 
 Thank you to [Wallpaper Abyss](https://wall.alphacoders.com/) for the background images 
 
+Thank you to [Nintendo](https://www.nintendo.com/) for the concepts used for these items
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
